@@ -44,7 +44,7 @@ class Excel extends React.Component{
     }});
   }
   
-  _save: function(e) {
+  _save(e) {
     e.preventDefault();
     var input = e.target.firstChild;
     var data = this.state.data.slice();
@@ -53,11 +53,9 @@ class Excel extends React.Component{
       edit: null,
       data: data,
     });
-  },
+  }
   
-  _preSearchData: null,
-  
-  _toggleSearch: function() {
+  _handleToggleSearch() {
     if (this.state.search) {
       this.setState({
         data: this._preSearchData,
@@ -70,9 +68,9 @@ class Excel extends React.Component{
         search: true,
       });
     }
-  },
+  }
   
-  _search: function(e) {
+  _handleSearch(e) {
     var needle = e.target.value.toLowerCase();
     if (!needle) {
       this.setState({data: this._preSearchData});
@@ -83,9 +81,9 @@ class Excel extends React.Component{
       return row[idx].toString().toLowerCase().indexOf(needle) > -1;
     });
     this.setState({data: searchdata});
-  },
+  }
   
-  _download: function (format, ev) {
+  _download(format, ev) {
     var contents = format === 'json'
       ? JSON.stringify(this.state.data)
       : this.state.data.reduce(function(result, row) {
@@ -104,18 +102,18 @@ class Excel extends React.Component{
     var blob = new Blob([contents], {type: 'text/' + format});
     ev.target.href = URL.createObjectURL(blob);
     ev.target.download = 'data.' + format;
-  },
+  }
   
-  render: function() {
+  render() {
     return (
       <div className="Excel">
         {this._renderToolbar()}
         {this._renderTable()}
       </div>
     );
-  },
+  }
   
-  _renderToolbar: function() {
+  _renderToolbar() {
     return (
       <div className="toolbar">
         <button onClick={this._toggleSearch}>Search</button>
@@ -125,9 +123,9 @@ class Excel extends React.Component{
           href="data.csv">Export CSV</a>
       </div>
     );
-  },
+  }
   
-  _renderSearch: function() {
+  _handleRenderSearch() {
     if (!this.state.search) {
       return null;
     }
@@ -138,9 +136,9 @@ class Excel extends React.Component{
         })}
       </tr>
     );
-  },
+  }
   
-  _renderTable: function() {
+  _renderTable() {
     return (
       <table>
         <thead onClick={this._sort}>
@@ -177,7 +175,8 @@ class Excel extends React.Component{
       </table>
     );
   }
-});
+
+};
 
 Excel.propTypes = {
   headers:PropTypes.arrayOf(PropTypes.string),
