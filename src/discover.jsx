@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 
 import Button from './components/Button';
 import Logo from './components/Logo';
+import Suggest from './components/Suggest';
 
 
 ReactDOM.render(
@@ -24,7 +25,8 @@ ReactDOM.render(
   	<div>A link: <Button href="http://reactjs.com">Follow me</Button></div>
   	<div>Custom class name: <Button className="custom">I do nothing</Button></div>
 
-  	
+  	<h2>Suggest</h2>
+  	<div><Suggest options={['eenie', 'meenie', 'mminey', 'mo']} /></div>
 
 
   </div>,
