@@ -4,6 +4,9 @@ import Excel from './components/Excel';
 import Logo from './components/Logo';
 import React from 'react';
 import ReactDOM from 'react-dom';
+// import '../css/logo.css'
+import '../css/app.css'
+
 
 var headers = localStorage.getItem('headers');
 var data = localStorage.getItem('data');
@@ -18,6 +21,7 @@ ReactDOM.render(
     	<h1>
       		<Logo/> Welcome to Whinepad!
     	</h1>
+    	<Excel headers={headers} initialData={data} />
   	</div>,
   	document.getElementById('app')
 );

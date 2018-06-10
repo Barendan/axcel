@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../../css/excel.css'
 
 class Excel extends React.Component{
 
@@ -16,7 +17,7 @@ class Excel extends React.Component{
       search: false,
     };
     this._sort = this.handleSort.bind(this);
-    this._rendersearch = this.handleRenderSearch.bind(this);
+    this._renderSearch = this.handleRenderSearch.bind(this);
     this._toggleSearch = this.handleToggleSearch.bind(this);
     this._search = this.handleSearch.bind(this);
   }
@@ -55,7 +56,7 @@ class Excel extends React.Component{
     });
   }
   
-  _handleToggleSearch() {
+  handleToggleSearch() {
     if (this.state.search) {
       this.setState({
         data: this._preSearchData,
@@ -70,7 +71,7 @@ class Excel extends React.Component{
     }
   }
   
-  _handleSearch(e) {
+  handleSearch(e) {
     var needle = e.target.value.toLowerCase();
     if (!needle) {
       this.setState({data: this._preSearchData});
@@ -125,7 +126,7 @@ class Excel extends React.Component{
     );
   }
   
-  _handleRenderSearch() {
+  handleRenderSearch() {
     if (!this.state.search) {
       return null;
     }
