@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import '../../css/Rating.css';
 
 class Rating extends Component {
 	constructor(props) {

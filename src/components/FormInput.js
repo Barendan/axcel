@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Rating from './Rating';
 import Suggest from './Suggest';
+import '../../css/FormInput.css'
 
 class FormInput extends Component {
 	getValue() {

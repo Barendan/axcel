@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import FormInput from './FormInput';
 import Rating from './Rating';
+import '../../css/Form.css'
 
 class Form extends Component {
 	getdata() {
