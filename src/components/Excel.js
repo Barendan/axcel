@@ -118,6 +118,7 @@ class Excel extends Component {
     }
     switch (this.state.dialog.type) {
       case 'delete' :
+  console.log("hello");
         return this._renderDeleteDialog();
       case 'info':
         return this._renderFormDialog(true);
@@ -176,7 +177,7 @@ class Excel extends Component {
               }
               return (
                 <th
-                  className={`schema-${item-id}`}
+                  className={`schema-${item.id}`}
                   key={item.id}
                   onClick={this._sort.bind(this, item.id)}
                 >
@@ -235,7 +236,6 @@ class Excel extends Component {
       </table>
     );
   }
-
 }
 
 Excel.propTypes = {

@@ -5,6 +5,7 @@ import Button from './Button';
 import Dialog from './Dialog';
 import Excel from './Excel';
 import Form from './Form';
+import '../../css/Whinepad.css';
 
 class Whinepad extends Component {
 	constructor(props) {

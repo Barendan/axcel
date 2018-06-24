@@ -5,8 +5,8 @@ import ReactDOM from 'react-dom';
 import Logo from './components/Logo';
 import Whinepad from './components/Whinepad';
 import schema from './schema';
-// import '../css/logo.css'
 import '../css/app.css'
+import '../css/schema.css'
 
 let data = JSON.parse(localStorage.getItem('data'));
 
