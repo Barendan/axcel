@@ -15,10 +15,10 @@ var MiniCssExtractPluginConfig = new MiniCssExtractPlugin({
 
 
 module.exports = {
-	entry: __dirname + '/src/discover.jsx',
+	entry: __dirname + '/src/app.js',
 	output: {
 		path: __dirname + '/dist',
-		filename: 'discover-bundle.js'
+		filename: 'bundle.js'
 	},
 	module: {
 		rules: [

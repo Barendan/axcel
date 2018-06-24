@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import Button from './Button';
 import Dialog from './Dialog';
-import Form from './Form';
 import Excel from './Excel';
+import Form from './Form';
 
 class Whinepad extends Component {
 	constructor(props) {
@@ -119,7 +119,7 @@ Whinepad.propTypes = {
 	schema: PropTypes.arrayOf(
 		PropTypes.object
 	),
-	initialData: PropTypes.ArrayOf(
+	initialData: PropTypes.arrayOf(
 		PropTypes.object
 	),
 }

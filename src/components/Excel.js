@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import '../../css/excel.css'
+import '../../css/Excel.css'
 
-import Actions from './components/Actions';
-import Dialog from './components/Dialog';
-import Form from './components/Form';
-import FormInput from './components/FormInput';
-import Rating from './components/Rating';
+import Actions from './Actions';
+import Dialog from './Dialog';
+import Form from './Form';
+import FormInput from './FormInput';
+import Rating from './Rating';
+// import schema from '../schema';
 
 
 class Excel extends Component {
@@ -17,7 +18,7 @@ class Excel extends Component {
     this.state = {
       data: this.props.initialData,
       sortby: null, //schema.id
-      descending: false.
+      descending: false,
       edit: null, // [row index, schema.id]
       dialog: null, // {type, idx}
     };
@@ -211,7 +212,7 @@ class Excel extends Component {
                   return (
                     <td 
                       className={classNames({
-                        [`schema-${schema.id}`]:true,
+                        [`schema-${schema.id}`]: true,
                         'ExcelEditable': !isRating,
                         'ExcelDataLeft': schema.align === 'left',
                         'ExcelDataRight': schema.align === 'right',
