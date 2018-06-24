@@ -1,27 +1,27 @@
 'use strict';
 
-import Excel from './components/Excel';
-import Logo from './components/Logo';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Logo from './components/Logo';
+import Whinepad from './components/Whinepad';
+import schema from './schema';
 // import '../css/logo.css'
 import '../css/app.css'
 
+let data = JSON.parse(localStorage.getItem('data'));
 
-var headers = localStorage.getItem('headers');
-var data = localStorage.getItem('data');
-
-if (!headers) {
-  headers = ['Title', 'Year', 'Rating', 'Comments'];
-  data = [['Test', '2015', '3', 'meh']];
+if(!data) {
+	data = {};
+	schema.forEach(item => data[item.id] = item.sample);
+	data = [data];
 }
 
 ReactDOM.render(
 	<div>
-    	<h1>
-      		<Logo/> Welcome to Whinepad!
-    	</h1>
-    	<Excel headers={headers} initialData={data} />
-  	</div>,
-  	document.getElementById('app')
+    	<div className="app-header">
+    		<Logo /> Welcome to Axcel!
+    	</div>
+    	<Whinepad schema={schema} initialData={data} />
+    </div>,
+    document.getElementById('app')
 );
