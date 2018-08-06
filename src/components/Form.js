@@ -5,7 +5,7 @@ import Rating from './Rating';
 import '../../css/Form.css'
 
 class Form extends Component {
-	getdata() {
+	getData() {
 		let data = {};
 		this.props.fields.forEach(field =>
 			data[field.id] = this.refs[field.id].getValue()
@@ -33,7 +33,7 @@ class Form extends Component {
 						<span className="FormLabel">{field.label}: </span>
 						{
 							field.type === 'rating'
-								? <Rating readonly={true} defaultValue={parseInt(prefilled,10)} />
+								? <Rating readonly={true} defaultValue={parseInt(prefilled, 10)} />
 								: <div>{prefilled}</div>
 						}
 					</div>

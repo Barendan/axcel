@@ -69,7 +69,7 @@ class Whinepad extends Component {
 			}
 			return false;
 		});
-		this.setState({data: searchdata});
+		this.setState({data: searchData});
 	}
 
 	render() {
@@ -105,7 +105,7 @@ class Whinepad extends Component {
 						confirmLabel="Add"
 						onAction={this._addNew.bind(this)}
 					>
-						<form
+						<Form
 							ref="form"
 							fields={this.props.schema} />
 					</Dialog>

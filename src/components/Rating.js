@@ -8,7 +8,7 @@ class Rating extends Component {
 		super(props);
 		this.state = {
 			rating: props.defaultValue,
-			tmpRating: props.defaultValue
+			tmpRating: props.defaultValue,
 		};
 	}
 
@@ -21,9 +21,9 @@ class Rating extends Component {
 	}
 
 	setRating(rating) { //on click
-		this.setstate({
+		this.setState({
 			tmpRating: rating,
-			rating: rating
+			rating: rating,
 		});
 	}
 
@@ -42,8 +42,8 @@ class Rating extends Component {
 				<span
 					className={i <= this.state.tmpRating ? 'RatingOn' : null}
 					key={i}
-					onClick={() => !this.props.readonly && this.setTemp.bind(this, i)}
-					onMouseOver={!this.props.readonly && this.setTemp.bind(this, i)}
+					onClick={!this.props.readonly ? this.setRating.bind(this, i) : null}
+					onMouseOver={!this.props.readonly ? this.setTemp.bind(this, i) : null}
 				>
 				&#9734;
 				</span>
@@ -53,7 +53,7 @@ class Rating extends Component {
 			<div
 				className={classNames({
 					'Rating': true,
-					'RatingReadonly': this.props.readonly
+					'RatingReadonly': this.props.readonly,
 				})}
 				onMouseOut={this.reset.bind(this)}
 			>
@@ -71,14 +71,14 @@ class Rating extends Component {
 }
 
 Rating.propTypes = {
-	defaultvalue: PropTypes.number,
+	defaultValue: PropTypes.number,
 	readonly: PropTypes.bool,
-	max: PropTypes.number
+	max: PropTypes.number,
 }
 
 Rating.defaultProps = {
-	defaultvalue: 0,
-	max: 5
+	defaultValue: 0,
+	max: 5,
 }
 
 export default Rating

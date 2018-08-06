@@ -8,7 +8,7 @@ class FormInput extends Component {
 	getValue() {
 		return 'value' in this.refs.input
 		? this.refs.input.value
-		: this.refs.input.getValue();
+		: console.log(this.refs.input);
 	}
 
 	render() {

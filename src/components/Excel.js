@@ -118,7 +118,6 @@ class Excel extends Component {
     }
     switch (this.state.dialog.type) {
       case 'delete' :
-  console.log("hello");
         return this._renderDeleteDialog();
       case 'info':
         return this._renderFormDialog(true);
@@ -144,12 +143,12 @@ class Excel extends Component {
     );
   }
 
-  _renderFormDialog() {
+  _renderFormDialog(readonly) {
     return (
       <Dialog
         modal={true}
         header={readonly ? 'Item info' : 'Edit item'}
-        confirmLabel={readonly ? 'ok' : 'Save'}
+        confirmLabel={readonly ? 'Ok' : 'Save'}
         hasCancel={!readonly}
         onAction={this._saveDataDialog.bind(this)}
       >

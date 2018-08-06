@@ -24,12 +24,12 @@ class Dialog extends Component {
 					<div className="DialogBody">{this.props.children}</div>
 					<div className="DialogFooter">
 						{this.props.hasCancel
-						 ? <span
+							? <span
 								className="DialogDismiss"
 								onClick={this.props.onAction.bind(this, 'dismiss')}>
 								Cancel
 							</span>
-						 : null
+							: null
 						}
 						<Button onClick={this.props.onAction.bind(this,
 							this.props.hasCancel ? 'confirm' : 'dismiss')}>
