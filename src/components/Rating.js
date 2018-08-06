@@ -1,10 +1,31 @@
+/* @flow */
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import '../../css/Rating.css';
 
+type Props = {
+	defaultValue: number,
+	readonly: boolean,
+	max: number,
+};
+
+type State = {
+	rating: number,
+	tmpRating: number,
+};
+
 class Rating extends Component {
-	constructor(props) {
+
+	props: Props;
+	state: State;
+
+	static defaultProps = {
+		defaultValue: 0,
+		max: 5,
+		readonly: false,
+	};
+
+	constructor(props: Props) {
 		super(props);
 		this.state = {
 			rating: props.defaultValue,
@@ -12,15 +33,15 @@ class Rating extends Component {
 		};
 	}
 
-	getValue() { // all our inputs provide this
+	getValue(): number { // all our inputs provide this
 		return this.state.rating;
 	}
 
-	setTemp(rating) { //on mouse over
+	setTemp(rating: number) { //on mouse over
 		this.setState({tempRating: rating});
 	}
 
-	setRating(rating) { //on click
+	setRating(rating: number) { //on click
 		this.setState({
 			tmpRating: rating,
 			rating: rating,
@@ -31,7 +52,7 @@ class Rating extends Component {
 		this.setTemp(this.state.rating);
 	}
 
-	componentWillReceiveProps(nextProps) { // react to outside changes
+	componentWillReceiveProps(nextProps: Props) { // react to outside changes
 		this.setRating(nextProps.defaultValue);
 	}
 
@@ -70,15 +91,5 @@ class Rating extends Component {
 	}
 }
 
-Rating.propTypes = {
-	defaultValue: PropTypes.number,
-	readonly: PropTypes.bool,
-	max: PropTypes.number,
-}
-
-Rating.defaultProps = {
-	defaultValue: 0,
-	max: 5,
-}
 
 export default Rating
